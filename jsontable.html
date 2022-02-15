@@ -1,0 +1,60 @@
+<!--Display a Json data into a Html table-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Table</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.min.js"></script>
+</head>
+<body>
+    <table class="table table-striped">
+        <tr class="bg-primary">
+            <th>Name</th>
+            <th>Age</th>
+            <th>Birthday</th>
+            <th>Salary</th>
+            <th>Gender</th>
+            <th>Native</th>
+            <th>Degree</th>
+        </tr>
+        <tbody id="myTable" class="bg-info">
+
+        </tbody>
+    </table>
+    <script>
+        var employees=[
+            {'name':'Priya','age':'21','bday':'21-06-2000','salary':'20000','gender':'female','native':'Tirunelveli','degree':'B.Tech'},
+            {'name':'Ramesh','age':'22','bday':'08-10-1999','salary':'30000','gender':'male','native':'Ramanathapuram','degree':'B.Tech'},
+            {'name':'Vimala','age':'22','bday':'12-09-2000','salary':'15000','gender':'female','native':'Tenkasi','degree':'B.Sc'},
+            {'name':'Subash','age':'20','bday':'02-02-2001','salary':'25000','gender':'male','native':'Sankarankovil','degree':'B.E'},
+            {'name':'Sudha','age':'22','bday':'25-12-1999','salary':'10000','gender':'female','native':'Thootukudi','degree':'BBA'},
+            {'name':'Radhika','age':'22','bday':'05-09-2000','salary':'10000','gender':'female','native':'Chennai','degree':'BSC'},
+            {'name':'Nanuvel','age':'23','bday':'19-11-1998','salary':'15000','gender':'male','native':'Madurai','degree':'B.E'},
+            {'name':'Kani','age':'22','bday':'15-02-1999','salary':'18000','gender':'female','native':'Virudhunagar','degree':'B.Tech'},
+            {'name':'Gokul','age':'21','bday':'02-12-2000','salary':'15000','gender':'male','native':'Kerala','degree':'B.E'},
+            {'name':'Shiny','age':'22','bday':'12-07-1999','salary':'10000','gender':'female','native':'Chennai','degree':'B.Tech'},
+        ]
+    buildTable(employees);
+    
+    function buildTable(data){
+        var table=document.getElementById("myTable");
+        for(var i=0;i<employees.length;i++){
+            var row =`<tr>
+                            <td>${data[i].name}</td>
+                            <td>${data[i].age}</td>
+                            <td>${data[i].bday}</td>
+                            <td>${data[i].salary}</td>
+                            <td>${data[i].gender}</td>
+                            <td>${data[i].native}</td>
+                            <td>${data[i].degree}</td>
+                     </tr>`
+            table.innerHTML+=row;
+        }
+    }
+    </script>
+    
+</body>
+</html>

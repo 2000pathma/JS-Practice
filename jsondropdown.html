@@ -1,0 +1,42 @@
+<!--Display a Json data into a Html Select Option-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Dropdown</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="bootstrap.min.js"></script>
+</head>
+<body class="bg-success" >
+    <select id="list" class="form-select form-select-lg container ">
+        <option selected></option>
+    </select>
+    <script>
+        var employees=[
+            {'name':'Priya','age':'21','bday':'21-06-2000','salary':'20000'},
+            {'name':'Ramesh','age':'22','bday':'08-10-1999','salary':'30000'},
+            {'name':'Vimala','age':'22','bday':'12-09-2000','salary':'15000'},
+            {'name':'Subash','age':'20','bday':'02-02-2001','salary':'25000'},
+            {'name':'Sudha','age':'22','bday':'25-12-1999','salary':'10000'},
+        ]
+    buildTable(employees);
+    function buildTable(data){
+        var list=document.getElementById("list");
+        for(var i=0;i<employees.length;i++){
+            var listdata =`<select>
+                            <optgroup class="bg-warning">
+                            <option class="text-primary">${data[i].name}</option>
+                            <option>${data[i].age}</option>
+                            <option>${data[i].bday}</option>
+                            <option>${data[i].salary}</option>
+                            </optgroup>
+                     </select>`
+            list.innerHTML+=listdata;
+        }
+    }
+    </script>
+    
+</body>
+</html>
